@@ -15,3 +15,5 @@ ft_strcpy:
 
     pop     rax             ; 원래의 dst 주소 반환
     ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits

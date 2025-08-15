@@ -1,16 +1,17 @@
-global ft_strlen ; export부분
+global ft_strlen
 
-section .text ; 코드 섹션
-
-; .data, .bss 같은 섹션이 따로 있음 메모리 구조에 따른듯
-; 앞에 . 표시를 붙인걸 label이라고 표현함 jmp .loop라고 하면 점프해서 반복함
+section .text
 
 ft_strlen:
-    xor rax, rax    ; rax 초기화
-    cmp byte [rdi + rax], 0 ; 핵심 로직 -> byte는 1바이트씩 읽는 것, cmp로 비교
-    je  .done   ; null이면 끝
-    inc rax ; 글자 하나 추가
-    jmp .loop   ; 다시 반복
+    xor     rax, rax             ; 길이 카운터 = 0
+
+.loop:
+    cmp     byte [rdi + rax], 0
+    je      .done
+    inc     rax
+    jmp     .loop
 
 .done:
-    ret     ;RAX 반환
+    ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits
