@@ -14,7 +14,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(AR) rcs $@ $^
 
-# 과제 지침: 평가용 main은 -L. -lasm 으로 링크
 test: $(NAME) main.c
 	$(CC) $(CFLAGS) main.c -L. -lasm -o test_asm
 

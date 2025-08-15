@@ -2,7 +2,7 @@ default rel
 global ft_strcmp
 
 section .text
-; int ft_strcmp(const char *s1, const char *s2)
+
 ft_strcmp:
 .loop:
     mov     al, [rdi]
@@ -16,9 +16,9 @@ ft_strcmp:
     xor     eax, eax
     ret
 
-.diff:                       ; unsigned 비교 기준으로 부호만 반환
-    jb      .neg            ; al < dl  (unsigned) ? 음수
-    mov     eax, 1          ; al > dl
+.diff: 
+    jb      .neg
+    mov     eax, 1
     ret
 .neg:
     mov     eax, -1
